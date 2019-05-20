@@ -1,0 +1,60 @@
+#! /usr/bin/python3.5
+
+import os,sys
+import subprocess
+try:
+	i=sys.argv[1]
+except:
+	print('No string detected!')
+	print('Usage: strpal "[STRING]" [OPTION]')
+	print('Options:\n')
+	print('Option: -p   \t\tShows if the string is palindrome')
+	print('Option: -pp  \t\tShows the reversed form of the given string')
+	print('Option: -pa  \t\tMixture of option "-p" and "-pp"')
+	print('Option: --help\t\tShows this help')
+	sys.exit(1)
+try:
+	o=sys.argv[2]
+except:
+	print('Option not defined!')
+	print('Usage: strpal "[STRING]" [OPTION]')
+	print('Options:\n')
+	print('Option: -p   \t\tShows if the string is palindrome')
+	print('Option: -pp  \t\tShows the reversed form of the given string')
+	print('Option: -pa  \t\tMixture of option "-p" and "-pp"')
+	print('Option: --help\t\tShows this help')
+	sys.exit(1)
+i.casefold()
+ri=i[::-1]
+if o=='-p':
+	if ri==i:
+		print('The word/string is palindrome!')
+	else:
+		print('The word/string is not palindrome!')
+	sys.exit(0)
+elif o=='-pp':
+	print('Reversed form is:',ri)
+	sys.exit(0)
+elif o =='-pa':
+	if ri==i:
+		print('The word/string is palindrome!')
+	else:
+		print('The word/string is not palindrome!')
+	print('Reversed form is:',ri)
+elif o=='--help':
+	print('Usage: python3 strpal.py "[STRING]" [OPTION]')
+	print('Options:\n')
+	print('Option: -p   \t\tShows if the string is palindrome')
+	print('Option: -pp  \t\tShows the reversed form of the given string')
+	print('Option: -pa  \t\tMixture of option "-p" and "-pp"')
+	print('Option: --help\t\tShows this help')
+	sys.exit(0)
+else:
+	print('Unknown option:',"'",o,"'")
+	print('Usage: python3 strpal.py "[STRING]" [OPTION]')
+	print('Options:\n')
+	print('Option: -p   \t\tShows if the string is palindrome')
+	print('Option: -pp  \t\tShows the reversed form of the given string')
+	print('Option: -pa  \t\tMixture of option "-p" and "-pp"')
+	print('Option: --help\t\tShows this help')
+	sys.exit(1)

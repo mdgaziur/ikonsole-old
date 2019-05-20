@@ -1,0 +1,43 @@
+#! /usr/bin/python
+from pyDes import *
+import sys,os
+def encode(data,password):
+	k = des(password, CBC, "\0\0\0\0\0\0\0\0", pad=None, padmode=PAD_PKCS5)
+	d = k.encrypt(data)
+	return d
+
+def decode(data,password):
+	k = des(password, CBC, "\0\0\0\0\0\0\0\0", pad=None, padmode=PAD_PKCS5)
+	d = k.decrypt(data)
+	return d
+
+def Encrypt(f,key):
+	reader = open(f, "r").read()
+	writer = open(f, "w").write(encode(reader, key))
+	print('Encrypting...')
+	print ("File has been encrypted successfully")
+	raw_input("Press enter to end .... ")
+	
+def Decrypt(f,key):
+	reader = open(f, "r").read()
+	writer = open(f, "w").write(decode(reader, key))
+	print('Decrypting...')
+	print ("File has been decrypted successfully")
+	raw_input("Press enter to end .... ")
+try:
+	f=sys.argv[1]
+	key=sys.argv[2]
+	option=sys.argv[3]
+except:
+	print('Insufficient arguments!')
+	print('usage: encrypt [FILE/DIR TO FILE] [PINCODE] [OPTION]')
+	print('Pincode must be numeric and must be 8 charecters long')
+	print('Options are: "decrypt" and "encrypt"\nKeep in note that never try to decrypt non-encrypted file. If you do so, your file can be corrupted and will never be recoverable!')
+	sys.exit(1)
+if option=='encrypt':
+	Encrypt(f,key)
+elif option=='decrypt':
+	Decrypt(f,key)
+else:
+	print('Invalid option!')
+	sys.exit(1)
