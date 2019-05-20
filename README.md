@@ -52,10 +52,7 @@ Using iKonsole is very easy!
 
 iKonsole can be run with the defined commands to start or you can 
 
-start it by typing only 'ikonsole' in the terminal window. And 
-iKonsole cannot be run as root directly. So, you will have to
-give option '--fr'(That needs password '1ks0138sna') or 
-'--1ks0138sna' to run it as root. The defined ikonsole commands are:
+start it by typing only 'ikonsole' in the terminal window. The defined ikonsole commands are:
 
 
 
@@ -70,6 +67,7 @@ runs the program in normal mode(Will be terminated if runned as root).
 --bash 
 
 runs this program with bash. Internal iKonsole commands like "about" will not be available.
+
 iKonsole also has internal commands. They are:
 
 init                                                   
